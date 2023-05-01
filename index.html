@@ -6,9 +6,37 @@
   <title>Место</title>
   <link rel="icon" href="./images/__logo.svg">
   <link rel="stylesheet" href="./pages/index.css">
+
+<!-- Pixel Glass -->
+<style>
+  HTML {
+    background-repeat: no-repeat;
+    background-position:  50% 0;
+    /* >1280px */
+    background-image: url( "__debug/1280.jpg" );
+  }
+
+  @media ( max-width: 320px ) {
+    HTML {
+      /*  768px */
+      background-image: url( "__debug/320.png" );
+    }
+  }
+
+  BODY {
+    opacity: .5;
+  }
+</style>
+
+<link rel="stylesheet" href="./pixel-glass/styles.css">
+<script src="./pixel-glass/script.js"></script>
+<!-- // Pixel Glass -->
+
 </head>
 
 <body class="page">
+
+  <div class="px2px" style="background-image: url('./__debug/1280.jpg');"></div>
 
   <header class="header">
     <img class="header__logo" src="./images/__logo.svg" alt="Логотип">
@@ -69,9 +97,9 @@
     </div>
 
     <div class="element">
-      <img class="element__image" src="./images/place6.jpg" alt="Карачаевск">
+      <img class="element__image" src="./images/place6.jpg" alt="Карачаево-Черкесск">
       <div class="element__title">
-        <p class="element__title-text">Карачаевск</p>
+        <p class="element__title-text">Карачаево-Черкесск</p>
         <img class="element__title-like" src="./images/heart-disabled.svg">
       </div>
     </div>

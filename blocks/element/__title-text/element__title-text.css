@@ -4,4 +4,7 @@
   color: black;
   line-height: 29px;
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
