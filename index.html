@@ -18,7 +18,7 @@
 
   @media ( max-width: 320px ) {
     HTML {
-      /*  768px */
+      /*  320px */
       background-image: url( "__debug/320.png" );
     }
   }
@@ -97,9 +97,9 @@
     </div>
 
     <div class="element">
-      <img class="element__image" src="./images/place6.jpg" alt="Карачаево-Черкесск">
+      <img class="element__image" src="./images/place6.jpg" alt="Карачаево-Черкессия">
       <div class="element__title">
-        <p class="element__title-text">Карачаево-Черкесск</p>
+        <p class="element__title-text">Карачаево-Черкессия</p>
         <img class="element__title-like" src="./images/heart-disabled.svg">
       </div>
     </div>
@@ -108,5 +108,17 @@
   <section class="footer">
     <p class="footer__copyright">&copy; 2023 Dmitrii Valentinov</p>
   </section>
+
+  <div class="popup">
+    <form class="popup__container">
+      <div class="popup__button-close"></div>
+      <div class="popup__form">
+        <p class="popup__form-caption">Редактировать профиль</p>
+        <input class="popup__form-item popup__form-item-name" type="text" value="Жак-Ив Кусто" placeholder="Имя профиля">
+        <input class="popup__form-item popup__form-item-description" type="text" value="Исследователь океана" placeholder="Описание профиля">
+        <button class="popup__form-button-save">Сохранить</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

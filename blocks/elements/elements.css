@@ -6,4 +6,18 @@
   flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 17px;
+  align-self: center;
+}
+
+@media screen and (max-width: 896px) {
+  .elements {
+    max-width: 581px;
+    margin: 36px auto 0;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .elements {
+    max-width: 282px;
+  }
 }
