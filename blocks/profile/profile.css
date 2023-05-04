@@ -1,16 +1,9 @@
 .profile {
    max-width: 880px;
    max-height: 120px;
-   margin: 40px auto 0;
+   margin: 0;
    display: grid;
    grid-template-columns: 150px auto 150px;
-   align-self: center;
-}
-
-@media screen and (max-width: 896px) {
-  .profile {
-    margin: 42px 19px 0;
-  }
 }
 
 @media screen and (max-width: 700px) {
@@ -18,9 +11,9 @@
     grid-template-columns: auto;
     grid-template-rows: 120px auto 50px;
     justify-items: center;
-    margin: 42px auto 0;
     max-height: 286px;
     max-width: 282px;
     row-gap: 0;
+    align-self: center;
   }
 }

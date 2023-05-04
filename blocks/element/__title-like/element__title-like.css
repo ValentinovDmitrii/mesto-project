@@ -1,5 +1,11 @@
 .element__title-like {
+  background-image: url(../../../images/heart-disabled.svg);
+  background-repeat: no-repeat;
+  border: 0;
+  background-color: transparent;
+  margin-top: 5px; 
   transition: 0.5s;
+  transition-property: opacity;
 }
 
 .element__title-like:hover {
