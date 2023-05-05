@@ -1,15 +1,15 @@
 .popup__container {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #FFFFFF;
   border-radius: 10px;
-  width: 430px;
-  height: 330px;
+  width: 100%;
+  max-width: 430px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 520px) {
   .popup__container {
-    width: 282px;
-    height: 358px;
+    max-width: 282px;
   }
 }

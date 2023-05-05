@@ -1,8 +1,8 @@
 .page {
-    background-color: black;
+    background-color: #000000;
     margin: 0 auto;
-    font-family: Inter, Arial, sans-serif;
-    color: white;
+    font-family: "Inter", "Arial", sans-serif;
+    color: #FFFFFF;
     box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

@@ -21,7 +21,7 @@
           <h1 class="profile__info-name-text">Жак-Ив Кусто</h1>
           <button class="profile__info-edit-button" type="button" aria-label="Редактировать профиль"></button>
         </div>
-        <p class="profile__info-description">Исследователь океана</p>
+        <p class="profile__info-description">Исследователь океана 12341wffhwrthwrthbwgbnwgnwrn wergtwg2rtg45 245g24tg24tg wrnqt</p>
       </div>
       <button class="profile__add-button" type="button" aria-label="Добавить новое место"></button>
     </section>
@@ -30,7 +30,7 @@
       <ul class="elements">
         <li>
           <article  class="element">
-            <img class="element__image" src="./images/place1.jpg" alt="Карачаевск">
+            <img class="element__image" src="./images/lead__image.jpg" alt="Карачаевск">
             <h2 class="element__title-text">Карачаевск</h2>
             <button class="element__title-like" type="button" aria-label="Избранное"></button>
           </article>
@@ -72,24 +72,24 @@
           <article  class="element">
             <img class="element__image" src="./images/place6.jpg" alt="Карачаево-Черкессия">
             <h2 class="element__title-text">Карачаево-Черкессия</h2>
-            <button class="element__title-like" type="button" aria-label="Избранное"></button>
+            <button class="element__title-like element__title-like_active" type="button" aria-label="Избранное"></button>
           </article>
         </li>
       </ul>
     </section>
-  </main> 
+  </main>
 
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Дмитрий Валентинов</p>
   </footer>
 
-  <div class="popup popup_opened">
+  <div class="popup">
     <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
     <div class="popup__container">
       <h2 class="popup__form-caption">Редактировать профиль</h2>
       <form class="popup__form" name="edit-profile">
-        <input class="popup__form-item" type="text" value="Жак-Ив Кусто" placeholder="Имя профиля">
-        <input class="popup__form-item" type="text" value="Исследователь океана" placeholder="Описание профиля">
+        <input class="popup__form-item popup__form-item_input_name" name="profileName" type="text" value="Жак-Ив Кусто" placeholder="Имя профиля">
+        <input class="popup__form-item popup__form-item_input_description" name="profileDescription" type="text" value="Исследователь океана" placeholder="Описание профиля">
         <button class="popup__form-button-save" type="submit" aria-label="Применить изменения">Сохранить</button>
       </form>
     </div>

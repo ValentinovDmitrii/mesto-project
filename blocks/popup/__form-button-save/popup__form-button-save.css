@@ -1,19 +1,21 @@
 .popup__form-button-save {
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #FFFFFF;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   width: 358px;
   height: 50px;
-  margin: 48px auto 0 36px;
+  margin: 48px auto 37px 36px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
   transition: 0.5s;
   transition-property: opacity;
 }
 
 .popup__form-button-save:hover {
-  opacity: 0.75;
-  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 520px) {
@@ -22,6 +24,6 @@
     line-height: 17px;
     width: 238px;
     height: 46px;
-    margin: 45px auto 0 22px;
+    margin: 45px auto 25px 22px;
   }
 }

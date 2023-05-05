@@ -7,4 +7,11 @@
   row-gap: 20px;
   column-gap: 17px;
   align-self: center;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 320px) {
+  .elements {
+    margin-top: 36px;
+  }
 }

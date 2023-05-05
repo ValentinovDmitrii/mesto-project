@@ -3,12 +3,14 @@
   background-repeat: no-repeat;
   border: 0;
   background-color: transparent;
-  margin-top: 5px; 
+  width: 22px;
+  height: 19px;
+  margin-top: 5px;
+  cursor: pointer;
   transition: 0.5s;
   transition-property: opacity;
 }
 
 .element__title-like:hover {
-  cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.5;
 }

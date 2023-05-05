@@ -1,10 +1,8 @@
 .element {
-  background-color: white;
+  background-color: #FFFFFF;
   border-radius: 10px;
   width: 282px;
-  height: 361px;
   overflow: hidden;
-
   display: grid;
   grid-template-columns: 224px 22px;
   grid-template-rows: 282px 54px;
