@@ -4,7 +4,7 @@
   width: 282px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 224px 22px;
+  grid-template-columns: 240px 42px;
   grid-template-rows: 282px 54px;
   row-gap: 25px;
 }

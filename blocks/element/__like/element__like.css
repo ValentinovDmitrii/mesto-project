@@ -1,7 +1,8 @@
-.element__title-like {
+.element__like {
   background-image: url(../../../images/heart-disabled.svg);
   background-repeat: no-repeat;
   border: 0;
+  padding: 0;
   background-color: transparent;
   width: 22px;
   height: 19px;
@@ -11,6 +12,6 @@
   transition-property: opacity;
 }
 
-.element__title-like:hover {
+.element__like:hover {
   opacity: 0.5;
 }

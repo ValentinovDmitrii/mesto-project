@@ -1,11 +1,11 @@
 .main {
-  margin: 45px max(200px, 200px + (100% - 1280px)/2) 67px; 
+  margin: 40px max(200px, 200px + (100% - 1280px)/2) 67px;
   display: flex;
   flex-direction: column;
 }
 
 @media screen and (max-width: 1280px) {
   .main {
-    margin: max(28px, (45px - (1280px - 100vw)/2)) max(19px, (200px - (1280px - 100vw)/2)) max(48px, (67px - (1280px - 100vw)/2));
-  }  
+    margin: min(42px, (40px + (1280px - 100vw)/2)) max(19px, (200px - (1280px - 100vw)/2)) max(48px, (67px - (1280px - 100vw)/2));
+  }
 }
