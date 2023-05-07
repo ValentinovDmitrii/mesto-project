@@ -6,6 +6,9 @@
 
 @media screen and (max-width: 1280px) {
   .main {
-    margin: min(42px, (40px + (1280px - 100vw)/2)) max(19px, (200px - (1280px - 100vw)/2)) max(48px, (67px - (1280px - 100vw)/2));
+    /* плавное изменение размеров */
+    margin: /*от 42px до 40px*/min(42px, (40px + (1280px - 100vw)/2))
+            /*от 200px до 19px*/max(19px, (200px - (1280px - 100vw)/2))
+            /*от 67px до 48px*/max(48px, (67px - (1280px - 100vw)/2));
   }
 }
