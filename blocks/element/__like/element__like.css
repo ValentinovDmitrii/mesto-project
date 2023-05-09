@@ -1,4 +1,4 @@
-.places__like {
+.element__like {
   border: 0;
   padding: 0;
   background-image: url(../../../images/heart-disabled.svg);
@@ -14,6 +14,6 @@
   transition-property: opacity;
 }
 
-.places__like:hover {
+.element__like:hover {
   opacity: 0.5;
 }

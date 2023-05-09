@@ -19,11 +19,11 @@
 
 @import url("../blocks/places/places.css");
   @import url("../blocks/places/__elements/places__elements.css");
-  @import url("../blocks/places/__element/places__element.css");
-  @import url("../blocks/places/__image/places__image.css");
-  @import url("../blocks/places/__text/places__text.css");
-  @import url("../blocks/places/__like/places__like.css");
-    @import url("../blocks/places/__like/_active/places__like_active.css");
+  @import url("../blocks/element/element.css");
+  @import url("../blocks/element/__image/element__image.css");
+  @import url("../blocks/element/__text/element__text.css");
+  @import url("../blocks/element/__like/element__like.css");
+    @import url("../blocks/element/__like/_active/element__like_active.css");
 
 @import url("../blocks/footer/footer.css");
   @import url("../blocks/footer/__copyright/footer__copyright.css");
