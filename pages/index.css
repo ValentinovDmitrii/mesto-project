@@ -46,3 +46,11 @@
   @import url("../blocks/new-item-popup/__form-item/new-item-popup__form-item.css");
   @import url("../blocks/new-item-popup/__form-button-save/new-item-popup__form-button-save.css");
   @import url("../blocks/new-item-popup/_opened/new-item-popup_opened.css");
+
+@import url("../blocks/preview/preview.css");
+  @import url("../blocks/preview/__container/preview__container.css");
+  @import url("../blocks/preview/__button-close/preview__button-close.css");
+  @import url("../blocks/preview/__form/preview__form.css");
+  @import url("../blocks/preview/__caption/preview__caption.css");
+  @import url("../blocks/preview/__image/preview__image.css");
+  @import url("../blocks/preview/_opened/preview_opened.css");

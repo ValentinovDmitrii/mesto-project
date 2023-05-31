@@ -11,6 +11,8 @@ const popupNewItemButtonClose = document.querySelector('.new-item-popup__button-
 const namePlace = document.querySelector('.new-item-popup__form-item_input_name');
 const linkPlace = document.querySelector('.new-item-popup__form-item_input_link');
 const placesElements = document.querySelector('.places__elements');
+const preview = document.querySelector('.preview');
+const previewCloseButton = document.querySelector('.preview__button-close');
 
 const initialCards = [
   {
@@ -69,10 +71,17 @@ function setNewItemPopupClosed() {
 function setPlaceElement(nameItemPlace, linkItemPlace) {
   const placeTemplate = document.querySelector('#place-element').content;
   const placeNew = placeTemplate.querySelector('.element-item').cloneNode(true);
+  const imageElement = placeNew.querySelector('.element__image');
 
   placeNew.querySelector('.element__text').textContent = nameItemPlace;
-  placeNew.querySelector('.element__image').src = linkItemPlace;
-  placeNew.querySelector('.element__image').alt = nameItemPlace;
+  imageElement.src = linkItemPlace;
+  imageElement.alt = nameItemPlace;
+  imageElement.addEventListener('click', function(evt){
+    preview.querySelector('.preview__image').src = evt.target.src;
+    preview.querySelector('.preview__caption').textContent = evt.target.parentElement.querySelector('.element__text').textContent;
+    preview.classList.add('preview_opened');
+  });
+
   placeNew.querySelector('.element__like').addEventListener('click', function(evt) {
     evt.target.classList.toggle('element__like_active');
   });
@@ -93,6 +102,10 @@ function handleNewItemFormSubmit(evt) {
   setNewItemPopupClosed();
 }
 
+function setPreviewClosed() {
+  preview.classList.remove('preview_opened');
+}
+
 for (i=0; i<initialCards.length; i++) {
   prependNewPlace(setPlaceElement(initialCards[i].name, initialCards[i].link));
 }
@@ -104,4 +117,7 @@ formElement.addEventListener('submit', handleFormSubmit);
 
 popupNewItemButtonClose.addEventListener('click', setNewItemPopupClosed);
 formItem.addEventListener('submit', handleNewItemFormSubmit);
+
+
+previewCloseButton.addEventListener('click', setPreviewClosed);
 

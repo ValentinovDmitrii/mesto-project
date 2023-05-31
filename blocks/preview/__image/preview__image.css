@@ -1,0 +1,5 @@
+.preview__image {
+  max-height: 540px;
+  object-fit: contain;
+  display: block;
+}
