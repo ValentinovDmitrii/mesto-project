@@ -28,53 +28,7 @@
 
     <section class="places" aria-label="Места">
       <ul class="places__elements">
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/lead__image.jpg" alt="Карачаевск">
-            <h2 class="element__text">Карачаевск</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
 
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/place2.jpg" alt="Гора Эльбрус">
-            <h2 class="element__text">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
-
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/place3.jpg" alt="Домбай">
-            <h2 class="element__text">Домбай</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
-
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/place4.jpg" alt="Гора Эльбрус">
-            <h2 class="element__text">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
-
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/place5.jpg" alt="Домбай">
-            <h2 class="element__text">Домбай</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
-
-        <li>
-          <article  class="element">
-            <img class="element__image" src="./images/place6.jpg" alt="Карачаево-Черкессия">
-            <h2 class="element__text">Карачаево-Черкессия</h2>
-            <button class="element__like" type="button" aria-label="Избранное"></button>
-          </article>
-        </li>
       </ul>
     </section>
   </main>
@@ -94,6 +48,29 @@
       </form>
     </div>
   </div>
+
+  <div class="new-item-popup">
+    <div class="new-item-popup__container">
+      <button class="new-item-popup__button-close" type="reset" aria-label="Закрыть"></button>
+      <h2 class="new-item-popup__form-caption">Новое место</h2>
+      <form class="new-item-popup__form" name="editProfile">
+        <input class="new-item-popup__form-item new-item-popup__form-item_input_name" name="newPlaceName" type="text" value="" placeholder="Название">
+        <input class="new-item-popup__form-item new-item-popup__form-item_input_link" name="newPlaceLink" type="text" value="" placeholder="Ссылка на картинку">
+        <button class="new-item-popup__form-button-save" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <template id="place-element">
+    <li class="element-item">
+      <article  class="element">
+        <button class="element__delete" type="button" aria-label="Удалить"></button>
+        <img class="element__image" src="_blank" alt="">
+        <h2 class="element__text"></h2>
+        <button class="element__like" type="button" aria-label="Избранное"></button>
+      </article>
+    </li>
+  </template>
 
   <script src="./pages/script.js"></script>
 
