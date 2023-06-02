@@ -95,13 +95,13 @@ function setPlaceElement(nameItemPlace, linkItemPlace) {
   return placeNew;
 }
 
-function prependNewPlace(newItem) {
+function addNewPlace(newItem) {
   placesElements.prepend(newItem);
 }
 
 function handleNewItemFormSubmit(evt) {
   evt.preventDefault();
-  prependNewPlace(setPlaceElement(namePlace.value, linkPlace.value));
+  addNewPlace(setPlaceElement(namePlace.value, linkPlace.value));
   setNewItemPopupClosed();
 }
 
@@ -110,7 +110,7 @@ function setPreviewClosed() {
 }
 
 for (i=0; i<initialCards.length; i++) {
-  prependNewPlace(setPlaceElement(initialCards[i].name, initialCards[i].link));
+  addNewPlace(setPlaceElement(initialCards[i].name, initialCards[i].link));
 }
 
 infoEditButton.addEventListener('click', setPopupOpened);
