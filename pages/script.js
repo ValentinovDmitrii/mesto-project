@@ -109,9 +109,9 @@ function setPreviewClosed() {
   preview.classList.remove('preview_opened');
 }
 
-for (i=0; i<initialCards.length; i++) {
-  addNewPlace(setPlaceElement(initialCards[i].name, initialCards[i].link));
-}
+initialCards.forEach(function(card) {
+  addNewPlace(setPlaceElement(card.name, card.link));
+});
 
 infoEditButton.addEventListener('click', setPopupOpened);
 infoAddButton.addEventListener('click', setNewItemPopupOpened);
