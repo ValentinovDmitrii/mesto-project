@@ -1,11 +1,5 @@
 .preview__container {
   position: relative;
   background-color: transparent;
-}
-
-@media screen and (max-width: 850px) {
-  .preview__container {
-    max-height: 321px;
-    max-width: 240px;
-  }
+  max-width: 75%;
 }

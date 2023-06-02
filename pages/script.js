@@ -1,19 +1,3 @@
-const formElement = document.querySelector('.popup');
-const infoEditButton = document.querySelector('.profile__info-edit-button');
-const popupButtonClose = document.querySelector('.popup__button-close');
-const nameInput = document.querySelector('.popup__form-item_input_name');
-const jobInput = document.querySelector('.popup__form-item_input_description');
-const profileInfoNameText = document.querySelector('.profile__info-name-text');
-const profileInfoDescription = document.querySelector('.profile__info-description');
-const formItem = document.querySelector('.new-item-popup');
-const infoAddButton = document.querySelector('.profile__add-button');
-const popupNewItemButtonClose = document.querySelector('.new-item-popup__button-close');
-const namePlace = document.querySelector('.new-item-popup__form-item_input_name');
-const linkPlace = document.querySelector('.new-item-popup__form-item_input_link');
-const placesElements = document.querySelector('.places__elements');
-const preview = document.querySelector('.preview');
-const previewCloseButton = document.querySelector('.preview__button-close');
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -40,6 +24,25 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+const formElement = document.querySelector('.popup');
+const infoEditButton = document.querySelector('.profile__info-edit-button');
+const popupButtonClose = document.querySelector('.popup__button-close');
+const nameInput = document.querySelector('.popup__form-item_input_name');
+const jobInput = document.querySelector('.popup__form-item_input_description');
+
+const profileInfoNameText = document.querySelector('.profile__info-name-text');
+const profileInfoDescription = document.querySelector('.profile__info-description');
+const infoAddButton = document.querySelector('.profile__add-button');
+
+const formItem = document.querySelector('.new-item-popup');
+const popupNewItemButtonClose = document.querySelector('.new-item-popup__button-close');
+const namePlace = document.querySelector('.new-item-popup__form-item_input_name');
+const linkPlace = document.querySelector('.new-item-popup__form-item_input_link');
+const placesElements = document.querySelector('.places__elements');
+
+const preview = document.querySelector('.preview');
+const previewCloseButton = document.querySelector('.preview__button-close');
 
 function setPopupOpened() {
   nameInput.value = profileInfoNameText.textContent;
@@ -117,7 +120,6 @@ formElement.addEventListener('submit', handleFormSubmit);
 
 popupNewItemButtonClose.addEventListener('click', setNewItemPopupClosed);
 formItem.addEventListener('submit', handleNewItemFormSubmit);
-
 
 previewCloseButton.addEventListener('click', setPreviewClosed);
 

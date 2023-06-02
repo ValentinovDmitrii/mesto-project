@@ -20,7 +20,7 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 320px) {
   .preview__button-close {
     top: -36px;
     right: 0;
