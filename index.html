@@ -37,7 +37,7 @@
     <p class="footer__copyright">&copy; 2023 Дмитрий Валентинов</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup profile-popup">
     <div class="popup__container">
       <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__form-caption">Редактировать профиль</h2>
@@ -49,24 +49,24 @@
     </div>
   </div>
 
-  <div class="new-item-popup">
-    <div class="new-item-popup__container">
-      <button class="new-item-popup__button-close" type="reset" aria-label="Закрыть"></button>
-      <h2 class="new-item-popup__form-caption">Новое место</h2>
-      <form class="new-item-popup__form" name="editProfile">
-        <input class="new-item-popup__form-item new-item-popup__form-item_input_name" name="newPlaceName" type="text" value="" placeholder="Название">
-        <input class="new-item-popup__form-item new-item-popup__form-item_input_link" name="newPlaceLink" type="text" value="" placeholder="Ссылка на картинку">
-        <button class="new-item-popup__form-button-save" type="submit">Создать</button>
+  <div class="popup new-item-popup">
+    <div class="popup__container">
+      <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
+      <h2 class="popup__form-caption">Новое место</h2>
+      <form class="popup__form" name="editProfile">
+        <input class="popup__form-item popup__form-item_input_name" name="newPlaceName" type="text" value="" placeholder="Название">
+        <input class="popup__form-item popup__form-item_input_description" name="newPlaceLink" type="text" value="" placeholder="Ссылка на картинку">
+        <button class="popup__form-button-save" type="submit">Создать</button>
       </form>
     </div>
   </div>
 
-  <div class="preview">
-    <div class="preview__container">
-      <button class="preview__button-close" type="reset" aria-label="Закрыть"></button>
-      <form class="preview__form" name="previewForm">
-        <img class="preview__image" src="" alt="">
-        <h2 class="preview__caption"></h2>
+  <div class="popup preview-popup">
+    <div class="popup__container popup__container_preview">
+      <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
+      <form class="popup__form" name="previewForm">
+        <img class="popup__image" src="" alt="">
+        <h2 class="popup__comment"></h2>
       </form>
     </div>
   </div>

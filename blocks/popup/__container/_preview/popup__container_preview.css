@@ -1,5 +1,5 @@
-.preview__container {
-  position: relative;
+.popup__container_preview {
   background-color: transparent;
   max-width: 75%;
+  width: max-content;
 }
