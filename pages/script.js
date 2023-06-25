@@ -46,6 +46,8 @@ const previewComment = previewPopup.querySelector('.popup__comment');
 
 const popupCloseButtons = document.querySelectorAll('.popup__button-close');
 
+const page = document.querySelector('.page');
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
@@ -108,6 +110,12 @@ function handleNewItemFormSubmit(evt) {
   closePopup(newItemPopup);
 }
 
+function closeHandler(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
+}
+
 initialCards.forEach(function(card) {
   addNewPlace(setPlaceElement(card.name, card.link));
 });
@@ -122,4 +130,17 @@ popupCloseButtons.forEach(button => {
   const popup = button.closest('.popup');
 
   button.addEventListener('click', () => closePopup(popup));
+});
+
+page.addEventListener('click', function(evt) {
+  closeHandler(evt);
+});
+
+page.addEventListener('keydown', function(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelectorAll('.popup');
+    popup.forEach(form => {
+      closePopup(form);
+    })
+  }
 });
