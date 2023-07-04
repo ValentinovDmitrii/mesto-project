@@ -1,0 +1,7 @@
+.popup_button-disabled {
+  background-color: #f6f6f6;
+  color: rgba(196, 196, 196, 1);
+  border: 1px solid rgba(196, 196, 196, 1);
+  cursor: default;
+  pointer-events: none;
+}

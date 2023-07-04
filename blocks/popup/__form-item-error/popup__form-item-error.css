@@ -1,0 +1,15 @@
+.popup__form-item-error {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #FF0000;
+  border: none;
+  margin: -5px 36px 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 520px) {
+  .popup__form-item {
+    margin: -5px 22px 0;
+  }
+}

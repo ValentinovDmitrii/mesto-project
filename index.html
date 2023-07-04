@@ -16,6 +16,7 @@
   <main class="main">
     <section class="profile" aria-label="Профиль">
       <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+      <div class="profile__avatar-edit"> </div>
       <div class="profile__info">
         <div class="profile__info-name">
           <h1 class="profile__info-name-text">Жак-Ив Кусто</h1>
@@ -42,8 +43,12 @@
       <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__form-caption">Редактировать профиль</h2>
       <form class="popup__form" name="editProfile">
-        <input class="popup__form-item popup__form-item_input_name" name="profileName" type="text" value="" placeholder="Имя профиля">
-        <input class="popup__form-item popup__form-item_input_description" name="profileDescription" type="text" value="" placeholder="Описание профиля">
+        <input class="popup__form-item popup__form-item_input_name" name="profileName" type="text" id="profile-name" value="" placeholder="Имя профиля"
+               required minlength="2" maxlength="40">
+        <span class="popup__form-item-error profile-name-error" ></span>
+        <input class="popup__form-item popup__form-item_input_description" name="profileDescription" type="text" value="" id="profile-description"
+               placeholder="Описание профиля" required minlength="2" maxlength="200">
+        <span class="popup__form-item-error profile-description-error" ></span>
         <button class="popup__form-button-save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -54,8 +59,11 @@
       <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__form-caption">Новое место</h2>
       <form class="popup__form" name="editProfile">
-        <input class="popup__form-item popup__form-item_input_name" name="newPlaceName" type="text" value="" placeholder="Название">
-        <input class="popup__form-item popup__form-item_input_description" name="newPlaceLink" type="text" value="" placeholder="Ссылка на картинку">
+        <input class="popup__form-item popup__form-item_input_name" name="newPlaceName" type="text" id="place-name" value="" placeholder="Название" required
+               minlength="2" maxlength="30">
+        <span class="popup__form-item-error place-name-error" ></span>
+        <input class="popup__form-item popup__form-item_input_description" name="newPlaceLink" type="text" id="place-link" value="" placeholder="Ссылка на картинку" required>
+        <span class="popup__form-item-error place-link-error" ></span>
         <button class="popup__form-button-save" type="submit">Создать</button>
       </form>
     </div>
@@ -67,6 +75,17 @@
       <form class="popup__form" name="previewForm">
         <img class="popup__image" src="" alt="">
         <h2 class="popup__comment"></h2>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup avatar-popup">
+    <div class="popup__container">
+      <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
+      <h2 class="popup__form-caption">Обновить аватар</h2>
+      <form class="popup__form" name="editAvatar">
+        <input class="popup__form-item popup__form-item_avatar_link" name="avatarLink" type="text" value="" placeholder="Ссылка на аватар">
+        <button class="popup__form-button-save" type="submit">Сохранить</button>
       </form>
     </div>
   </div>

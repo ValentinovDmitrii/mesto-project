@@ -10,6 +10,7 @@
 
 @import url("../blocks/profile/profile.css");
   @import url("../blocks/profile/__avatar/profile__avatar.css");
+  @import url("../blocks/profile/__avatar-edit/profile__avatar-edit.css");
   @import url("../blocks/profile/__info/profile__info.css");
   @import url("../blocks/profile/__info-name/profile__info-name.css");
   @import url("../blocks/profile/__info-name-text/profile__info-name-text.css");
@@ -37,6 +38,10 @@
   @import url("../blocks/popup/__form-caption/popup__form-caption.css");
   @import url("../blocks/popup/__form-item/popup__form-item.css");
   @import url("../blocks/popup/__form-button-save/popup__form-button-save.css");
+  @import url("../blocks/popup/_button-disabled/popup_button-disabled.css");
   @import url("../blocks/popup/_opened/popup_opened.css");
   @import url("../blocks/popup/__comment/popup__comment.css");
   @import url("../blocks/popup/__image/popup__image.css");
+  @import url("../blocks/popup/__form-item/_type-error/popup__form-item_type-error.css");
+  @import url("../blocks/popup/__form-item-error/popup__form-item-error.css");
+    @import url("../blocks/popup/__form-item-error/_active/popup__form-item-error_active.css");
