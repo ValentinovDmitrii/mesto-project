@@ -53,6 +53,10 @@ const profileAvatar = document.querySelector('.profile__avatar');
 
 const page = document.querySelector('.page');
 
+const regNoValid = /[^\w\s\-\wа-я]|_/i;
+const errorSymbol = 'Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы';
+const errorURL = 'Неправильный адрес сайта проверьте правильность введенного URL';
+
 function openPopup(popup) {
   const formInput = Array.from(popup.querySelectorAll('.popup__form-item'));
   const buttonElement = popup.querySelector('.popup__form-button-save');
@@ -164,6 +168,19 @@ page.addEventListener('keydown', function(evt) {
 });
 
 // form validation
+
+function isValidHttpUrl(string) {
+  let url;
+
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('popup__form-item_type-error');
@@ -185,7 +202,21 @@ const hideInputError = (formElement, inputElement) => {
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
+    return;
+  }
+  if (inputElement.id === 'place-link') {
+    if (!isValidHttpUrl(inputElement.value)) {
+      showInputError(formElement, inputElement, errorURL);
+    } else {
+      hideInputError(formElement, inputElement);
+    }
+    return;
+  }
+
+  if (regNoValid.test(inputElement.value)) {
+    showInputError(formElement, inputElement, errorSymbol);
+  }
+  else {
     hideInputError(formElement, inputElement);
   }
 };
