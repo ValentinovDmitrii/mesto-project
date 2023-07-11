@@ -1,6 +1,8 @@
-import { enableValidation } from "../src/components/validate.js";
-import { enableModal } from "../src/components/modal.js";
-import { enableCard } from "../src/components/card.js";
+import { enableValidation } from "./components/validate.js";
+import { enableModal } from "./components/modal.js";
+import { enableCard } from "./components/card.js";
+
+import './index.css';
 
 enableValidation(
   { pageSelector: '.page',
@@ -25,7 +27,7 @@ enableModal(
 
 enableCard(
   {
-    placeElementID: '#place-element', 
+    placeElementID: '#place-element',
     itemSelector: '.element-item',
     imageSelector: '.element__image',
     textSelector: '.element__text',
