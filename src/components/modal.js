@@ -17,7 +17,13 @@ const page = document.querySelector('.page');
 
 import { checkInputValidity, toggleButtonState } from "./validate.js";
 
-let optionsModal = {};
+let optionsModal = {
+  // itemSelector: '.popup__form-item',
+  // buttonSelector: '.popup__form-button-save',
+  // popupSelector: '.popup',
+  // openedFormClass: 'popup_opened',
+  // popupClass: 'popup',
+};
 
 export function enableModal (options) {
   optionsModal = Object.assign({}, options);
@@ -76,12 +82,12 @@ function handleFormSubmit(evt) {
   closePopup(profilePopup);
 }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+export function closePopup(popup) {
+  popup.classList.remove(optionsModal.openedFormClass);
 }
 
 function closeHandler(evt) {
-  if (evt.target.classList.contains('popup')) {
+  if (evt.target.classList.contains(optionsModal.popupClass)) {
     closePopup(evt.target);
   }
 }

@@ -13,13 +13,25 @@ enableValidation(
     errorClass: 'popup__form-item-error_active'
   });
 
-  enableModal(
-    {
-      itemSelector: '.popup__form-item',
-      buttonSelector: '.popup__form-button-save',
-      popupSelector: '.popup',
-      openedFormClass: 'popup_opened',
-    }
-  );
+enableModal(
+  {
+    itemSelector: '.popup__form-item',
+    buttonSelector: '.popup__form-button-save',
+    popupSelector: '.popup',
+    openedFormClass: 'popup_opened',
+    popupClass: 'popup',
+  }
+);
 
-  enableCard();
+enableCard(
+  {
+    placeElementID: '#place-element', 
+    itemSelector: '.element-item',
+    imageSelector: '.element__image',
+    textSelector: '.element__text',
+    elementSelector: '.element',
+    likeSelector: '.element__like',
+    deleteSelector: '.element__delete',
+    activeLikeClass: 'element__like_active',
+   }
+);

@@ -32,10 +32,25 @@ const infoAddButton = document.querySelector('.profile__add-button');
 const previewPopup = document.querySelector('.preview-popup');
 const previewImage = previewPopup.querySelector('.popup__image');
 const previewComment = previewPopup.querySelector('.popup__comment');
+const nameCard = newItemPopup.querySelector('.popup__form-item_input_name');
+const linkCard = newItemPopup.querySelector('.popup__form-item_input_description');
 
-import {openPopup} from './modal.js';
+let optionsCard = {
+//    placeElementID: '#place-element', 
+//    itemSelector: '.element-item',
+//    imageSelector: '.element__image',
+//    textSelector: '.element__text',
+//    elementSelector: '.element',
+//    likeSelector: '.element__like',
+//    deleteSelector: '.element__delete',
+//    activeLikeClass: 'element__like_active',
+}
 
-export function enableCard() {
+import { openPopup, closePopup } from './modal.js';
+
+export function enableCard(options) {
+  optionsCard = Object.assign({}, options);
+
   initialCards.forEach(function(card) {
     addNewPlace(setPlaceElement(card.name, card.link));
   });    
@@ -49,31 +64,31 @@ function addNewPlace(newItem) {
   
 function handleNewItemFormSubmit(evt) {
   evt.preventDefault();
-  addNewPlace(setPlaceElement(nameInput.value, descriptionInput.value));
+  addNewPlace(setPlaceElement(nameCard.value, linkCard.value));
   closePopup(newItemPopup);
 }
   
 function setPlaceElement(nameItemPlace, linkItemPlace) {
-  const placeTemplate = document.querySelector('#place-element').content;
-  const placeNew = placeTemplate.querySelector('.element-item').cloneNode(true);
-  const imageElement = placeNew.querySelector('.element__image');
+  const placeTemplate = document.querySelector(optionsCard.placeElementID).content;
+  const placeNew = placeTemplate.querySelector(optionsCard.itemSelector).cloneNode(true);
+  const imageElement = placeNew.querySelector(optionsCard.imageSelector);
   
-  placeNew.querySelector('.element__text').textContent = nameItemPlace;
+  placeNew.querySelector(optionsCard.textSelector).textContent = nameItemPlace;
   imageElement.alt = nameItemPlace;
   imageElement.src = linkItemPlace;
   imageElement.addEventListener('click', function(evt){
-    previewComment.textContent = evt.target.closest('.element').querySelector('.element__text').textContent;
+    previewComment.textContent = evt.target.closest(optionsCard.elementSelector).querySelector(optionsCard.textSelector).textContent;
     previewImage.alt = evt.target.alt;
     previewImage.src = evt.target.src;
   
     openPopup(previewPopup);
   });
   
-  placeNew.querySelector('.element__like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('element__like_active');
+  placeNew.querySelector(optionsCard.likeSelector).addEventListener('click', function(evt) {
+    evt.target.classList.toggle(optionsCard.activeLikeClass);
   });
-  placeNew.querySelector('.element__delete').addEventListener('click', function(evt) {
-    evt.target.closest('.element-item').remove();
+  placeNew.querySelector(optionsCard.deleteSelector).addEventListener('click', function(evt) {
+    evt.target.closest(optionsCard.itemSelector).remove();
   });
   
   return placeNew;
