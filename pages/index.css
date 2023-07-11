@@ -38,7 +38,7 @@
   @import url("../blocks/popup/__form-caption/popup__form-caption.css");
   @import url("../blocks/popup/__form-item/popup__form-item.css");
   @import url("../blocks/popup/__form-button-save/popup__form-button-save.css");
-  @import url("../blocks/popup/_button-disabled/popup_button-disabled.css");
+    @import url("../blocks/popup/__form-button-save/_disabled/popup__form-button-save_disabled.css");
   @import url("../blocks/popup/_opened/popup_opened.css");
   @import url("../blocks/popup/__comment/popup__comment.css");
   @import url("../blocks/popup/__image/popup__image.css");

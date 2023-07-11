@@ -53,17 +53,17 @@ const profileAvatar = document.querySelector('.profile__avatar');
 
 const page = document.querySelector('.page');
 
-const regNoValid = /[^\w\s\-\wа-я]|_/i;
-const errorSymbol = 'Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы';
-const errorURL = 'Неправильный адрес сайта проверьте правильность введенного URL';
+import { enableValidation, checkInputValidity, toggleButtonState } from "../src/components/validate.js";
 
 function openPopup(popup) {
   const formInput = Array.from(popup.querySelectorAll('.popup__form-item'));
   const buttonElement = popup.querySelector('.popup__form-button-save');
   formInput.forEach((inputElement) => {
-    checkInputValidity(popup, inputElement);
+    checkInputValidity(popup, inputElement, 'place-link', 'popup__form-item_type-error', 'popup__form-item-error_active');
   });
-  toggleButtonState(formInput, buttonElement);
+  if (buttonElement) {
+    toggleButtonState(formInput, buttonElement, 'popup__form-button-save_disabled');
+  }
   popup.classList.add('popup_opened');
 }
 
@@ -169,93 +169,13 @@ page.addEventListener('keydown', function(evt) {
 
 // form validation
 
-function isValidHttpUrl(string) {
-  let url;
-
-  try {
-    url = new URL(string);
-  } catch (_) {
-    return false;
-  }
-
-  return url.protocol === "http:" || url.protocol === "https:";
-}
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('popup__form-item_type-error');
-  if (errorElement) {
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__form-item-error_active');
-  }
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('popup__form-item_type-error');
-  if (errorElement) {
-    errorElement.classList.remove('popup__form-item-error_active');
-    errorElement.textContent = '';
-  }
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-    return;
-  }
-  if (inputElement.id === 'place-link') {
-    if (!isValidHttpUrl(inputElement.value)) {
-      showInputError(formElement, inputElement, errorURL);
-    } else {
-      hideInputError(formElement, inputElement);
-    }
-    return;
-  }
-
-  if (regNoValid.test(inputElement.value)) {
-    showInputError(formElement, inputElement, errorSymbol);
-  }
-  else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-const setEventListener = (formElement) => {
-  const formInput = Array.from(formElement.querySelectorAll('.popup__form-item'));
-  const buttonElement = formElement.querySelector('.popup__form-button-save');
-  formInput.forEach((inputElement) => {
-    inputElement.addEventListener('input', function() {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(formInput, buttonElement);
-    });
-  });
-}
-
-function enableValidation() {
-  const formList = Array.from(page.querySelectorAll('.popup__form'));
-  formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-    setEventListener(formElement);
-  })
-}
-
-const hasInvalidInput = (formElement) => {
-  return formElement.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
-const toggleButtonState = (formElement, buttonElement) => {
-  if (hasInvalidInput(formElement)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add('popup_button-disabled');
-  } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove('popup_button-disabled');
-  }
-}
-
-enableValidation();
+enableValidation(
+{ pageSelector: '.page',
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-item',
+  submitButtonSelector: '.popup__form-button-save',
+  linkID: 'place-link',
+  inactiveButtonClass: 'popup__form-button-save_disabled',
+  inputErrorClass: 'popup__form-item_type-error',
+  errorClass: 'popup__form-item-error_active'
+});
