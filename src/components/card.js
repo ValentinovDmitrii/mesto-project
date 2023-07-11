@@ -45,7 +45,7 @@ export function enableCard() {
 
 function addNewPlace(newItem) {
   placesElements.prepend(newItem);
-  }  
+}  
   
 function handleNewItemFormSubmit(evt) {
   evt.preventDefault();
@@ -80,7 +80,7 @@ function setPlaceElement(nameItemPlace, linkItemPlace) {
 }
   
 function setNewItemPopupOpened() {
-    newItemPopupForm.reset();
-    openPopup(newItemPopup);
-  }
+  newItemPopupForm.reset();
+  openPopup(newItemPopup);
+}
           
