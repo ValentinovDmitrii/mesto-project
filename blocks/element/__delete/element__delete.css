@@ -3,7 +3,7 @@
   /* z-index: 1; */
   top: 20px;
   right: 20px;
-  background-image: url(../../../images/trash.svg);
+  background-image: url(../../../src/images/trash.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: cover;

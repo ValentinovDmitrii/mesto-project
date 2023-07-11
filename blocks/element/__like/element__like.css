@@ -1,7 +1,7 @@
 .element__like {
   border: 0;
   padding: 0;
-  background-image: url(../../../images/heart-disabled.svg);
+  background-image: url(../../../src/images/heart-disabled.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: cover;
