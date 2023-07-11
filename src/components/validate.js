@@ -10,6 +10,7 @@
   errorClass: 'popup__form-item-error_active'
 }
 */
+
 const regNoValid = /[^\w\s\-\wа-я]|_/i;
 const errorSymbol = 'Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы';
 const errorURL = 'Неправильный адрес сайта проверьте правильность введенного URL';
@@ -42,7 +43,6 @@ const setEventListener = (formElement, options) => {
 
 export const checkInputValidity = (formElement, inputElement, linkID, inputErrorClass, errorClass) => {
   if (!inputElement.validity.valid) {
-    console.log(inputElement.validationMessage);
     showInputError(formElement, inputElement, inputElement.validationMessage, inputErrorClass, errorClass);
     return;
   }
@@ -55,29 +55,29 @@ export const checkInputValidity = (formElement, inputElement, linkID, inputError
     return;
   }
 
-  const showInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(inputErrorClass);
-    if (errorElement) {
-      errorElement.textContent = errorMessage;
-      errorElement.classList.add(errorClass);
-    }
-  };
-
-  const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(inputErrorClass);
-    if (errorElement) {
-      errorElement.classList.remove(errorClass);
-      errorElement.textContent = '';
-    }
-  };
-
   if (regNoValid.test(inputElement.value)) {
     showInputError(formElement, inputElement, errorSymbol);
   }
   else {
     hideInputError(formElement, inputElement);
+  }
+};
+
+const showInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(inputErrorClass);
+  if (errorElement) {
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(errorClass);
+  }
+};
+
+const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(inputErrorClass);
+  if (errorElement) {
+    errorElement.classList.remove(errorClass);
+    errorElement.textContent = '';
   }
 };
 
