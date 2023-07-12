@@ -4,16 +4,11 @@ let optionsValidation = {
   // inputSelector: '.popup__form-item',
   // submitButtonSelector: '.popup__form-button-save',
   // linkID: 'place-link',
+  // linkAvatarID: 'avatar-link',
   // inactiveButtonClass: 'popup__form-button-save_disabled',
   // inputErrorClass: 'popup__form-item_type-error',
-  // errorClass: 'popup__form-item-error_active'  
+  // errorClass: 'popup__form-item-error_active'
 };
-
-const regNoValid = /[^\w\s\-\wа-я]|_/i;
-const errorSymbol = 'Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы';
-const errorURL = 'Неправильный адрес сайта проверьте правильность введенного URL';
-
-import { isValidHttpUrl } from './utils.js';
 
 export function enableValidation(options) {
   optionsValidation = Object.assign({}, options);
@@ -41,25 +36,18 @@ const setEventListener = (formElement) => {
 }
 
 export const checkInputValidity = (formElement, inputElement) => {
+  if ((inputElement.validity.patternMismatch) || (inputElement.validity.typeMismatch)) {
+    inputElement.setCustomValidity(inputElement.dataset.error);
+  } else {
+    inputElement.setCustomValidity("");
+  }
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
     return true;
-  }
-  if (inputElement.id === optionsValidation.linkID) {
-    if (!isValidHttpUrl(inputElement.value)) {
-      showInputError(formElement, inputElement, errorURL);
-      return true;
-    } 
+  } else {
     hideInputError(formElement, inputElement);
     return false;
   }
-
-  if (regNoValid.test(inputElement.value)) {
-    showInputError(formElement, inputElement, errorSymbol);
-    return true;
-  }
-  hideInputError(formElement, inputElement);
-  return false;
 };
 
 const showInputError = (formElement, inputElement, errorMessage) => {

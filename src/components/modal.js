@@ -31,47 +31,60 @@ export function enableModal (options) {
   infoEditButton.addEventListener('click', setPopupOpened);
   editAvatar.addEventListener('click', editAvatarOpened);
   profilePopup.addEventListener('submit', handleFormSubmit);
-  
+
   popupCloseButtons.forEach(button => {
     const popup = button.closest(optionsModal.popupSelector);
-  
+
     button.addEventListener('click', () => closePopup(popup));
   });
-  
-  page.addEventListener('click', function(evt) {
+
+  page.addEventListener('mousedown', function(evt) {
     closeHandler(evt);
   });
-  
-  page.addEventListener('keydown', function(evt) {
-    if (evt.key === 'Escape') {
-      const popup = document.querySelectorAll(optionsModal.popupSelector);
-      popup.forEach(form => {
-        closePopup(form);
-      })
-    }
-  });
+
+}
+
+function closeByEscape (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
 }
 
 export function openPopup(popup) {
-  const formInput = Array.from(popup.querySelectorAll(optionsModal.itemSelector));
-  const buttonElement = popup.querySelector(optionsModal.buttonSelector);
-  formInput.forEach((inputElement) => {
-    checkInputValidity(popup, inputElement);
-  });
-  if (buttonElement) {
-    toggleButtonState(popup, formInput, buttonElement);
-  }
   popup.classList.add(optionsModal.openedFormClass);
+  page.addEventListener('keydown', closeByEscape);
 }
 
 function setPopupOpened() {
   nameInput.value = profileInfoNameText.textContent;
   descriptionInput.value = profileInfoDescription.textContent;
+
+  const formInput = Array.from(profilePopup.querySelectorAll(optionsModal.itemSelector));
+  const buttonElement = profilePopup.querySelector(optionsModal.buttonSelector);
+
+  formInput.forEach((inputElement) => {
+    checkInputValidity(profilePopup, inputElement);
+  });
+  if (buttonElement) {
+    toggleButtonState(profilePopup, formInput, buttonElement);
+  }
+
   openPopup(profilePopup);
 }
 
 function editAvatarOpened() {
   avatarLink.value = profileAvatar.src;
+
+  const formInput = Array.from(popupAvatar.querySelectorAll(optionsModal.itemSelector));
+  const buttonElement = popupAvatar.querySelector(optionsModal.buttonSelector);
+
+  formInput.forEach((inputElement) => {
+    checkInputValidity(popupAvatar, inputElement);
+  });
+  if (buttonElement) {
+    toggleButtonState(popupAvatar, formInput, buttonElement);
+  }
   openPopup(popupAvatar);
 }
 
@@ -84,6 +97,7 @@ function handleFormSubmit(evt) {
 
 export function closePopup(popup) {
   popup.classList.remove(optionsModal.openedFormClass);
+  page.removeEventListener('keydown', closeByEscape);
 }
 
 function closeHandler(evt) {

@@ -43,10 +43,11 @@
       <h2 class="popup__form-caption">Редактировать профиль</h2>
       <form class="popup__form" name="editProfile">
         <input class="popup__form-item popup__form-item_input_name" name="profileName" type="text" id="profile-name" value="" placeholder="Имя профиля"
-               required minlength="2" maxlength="40">
+               required minlength="2" maxlength="40" pattern="^[A-Za-zА-Яа-яЁё -]+$" data-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
         <span class="popup__form-item-error profile-name-error" ></span>
         <input class="popup__form-item popup__form-item_input_description" name="profileDescription" type="text" value="" id="profile-description"
-               placeholder="Описание профиля" required minlength="2" maxlength="200">
+               placeholder="Описание профиля" required minlength="2" maxlength="200" pattern="^[A-Za-zА-Яа-яЁё -]+$"
+               data-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
         <span class="popup__form-item-error profile-description-error" ></span>
         <button class="popup__form-button-save" type="submit">Сохранить</button>
       </form>
@@ -59,9 +60,10 @@
       <h2 class="popup__form-caption">Новое место</h2>
       <form class="popup__form" name="editProfile">
         <input class="popup__form-item popup__form-item_input_name" name="newPlaceName" type="text" id="place-name" value="" placeholder="Название" required
-               minlength="2" maxlength="30">
+               minlength="2" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё -]+$" data-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
         <span class="popup__form-item-error place-name-error" ></span>
-        <input class="popup__form-item popup__form-item_input_description" name="newPlaceLink" type="text" id="place-link" value="" placeholder="Ссылка на картинку" required>
+        <input class="popup__form-item popup__form-item_input_description" name="newPlaceLink" type="url" id="place-link" value="" placeholder="Ссылка на картинку" required
+                      data-error="Неправильный адрес сайта проверьте правильность введенного URL">
         <span class="popup__form-item-error place-link-error" ></span>
         <button class="popup__form-button-save" type="submit">Создать</button>
       </form>
@@ -83,7 +85,9 @@
       <button class="popup__button-close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__form-caption">Обновить аватар</h2>
       <form class="popup__form" name="editAvatar">
-        <input class="popup__form-item popup__form-item_avatar_link" name="avatarLink" type="text" value="" placeholder="Ссылка на аватар">
+        <input class="popup__form-item popup__form-item_avatar_link" name="avatarLink" id="avatar-link" type="url" value="" placeholder="Ссылка на аватар" required
+               data-error="Неправильный адрес сайта проверьте правильность введенного URL">
+        <span class="popup__form-item-error avatar-link-error" ></span>
         <button class="popup__form-button-save" type="submit">Сохранить</button>
       </form>
     </div>

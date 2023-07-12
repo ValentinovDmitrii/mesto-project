@@ -10,6 +10,7 @@ enableValidation(
     inputSelector: '.popup__form-item',
     submitButtonSelector: '.popup__form-button-save',
     linkID: 'place-link',
+    linkAvatarID: 'avatar-link',
     inactiveButtonClass: 'popup__form-button-save_disabled',
     inputErrorClass: 'popup__form-item_type-error',
     errorClass: 'popup__form-item-error_active'
