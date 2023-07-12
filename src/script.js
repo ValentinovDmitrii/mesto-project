@@ -23,6 +23,7 @@ enableModal(
     popupSelector: '.popup',
     openedFormClass: 'popup_opened',
     popupClass: 'popup',
+    closeClass: 'popup__button-close',
   }
 );
 

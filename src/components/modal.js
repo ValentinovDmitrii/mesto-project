@@ -6,14 +6,14 @@ const descriptionInput = profilePopup.querySelector('.popup__form-item_input_des
 const profileInfoNameText = document.querySelector('.profile__info-name-text');
 const profileInfoDescription = document.querySelector('.profile__info-description');
 
-const popupCloseButtons = document.querySelectorAll('.popup__button-close');
-
 const editAvatar = document.querySelector('.profile__avatar-edit');
 const popupAvatar = document.querySelector('.avatar-popup');
 const avatarLink = document.querySelector('.popup__form-item_avatar_link');
 const profileAvatar = document.querySelector('.profile__avatar');
 
 const page = document.querySelector('.page');
+
+const popups = document.querySelectorAll('.popup')
 
 import { checkInputValidity, toggleButtonState } from "./validate.js";
 
@@ -23,6 +23,7 @@ let optionsModal = {
   // popupSelector: '.popup',
   // openedFormClass: 'popup_opened',
   // popupClass: 'popup',
+  // closeClass: 'popup__button-close',
 };
 
 export function enableModal (options) {
@@ -32,16 +33,16 @@ export function enableModal (options) {
   editAvatar.addEventListener('click', editAvatarOpened);
   profilePopup.addEventListener('submit', handleFormSubmit);
 
-  popupCloseButtons.forEach(button => {
-    const popup = button.closest(optionsModal.popupSelector);
-
-    button.addEventListener('click', () => closePopup(popup));
+  popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains(optionsModal.openedFormClass)) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains(optionsModal.closeClass)) {
+          closePopup(popup)
+        }
+    })
   });
-
-  page.addEventListener('mousedown', function(evt) {
-    closeHandler(evt);
-  });
-
 }
 
 function closeByEscape (evt) {
@@ -98,10 +99,4 @@ function handleFormSubmit(evt) {
 export function closePopup(popup) {
   popup.classList.remove(optionsModal.openedFormClass);
   page.removeEventListener('keydown', closeByEscape);
-}
-
-function closeHandler(evt) {
-  if (evt.target.classList.contains(optionsModal.popupClass)) {
-    closePopup(evt.target);
-  }
 }
