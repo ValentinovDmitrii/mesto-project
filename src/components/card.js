@@ -23,7 +23,9 @@ const initialCards = [
       name: 'Байкал',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-  ];  
+  ];
+
+import { checkInputValidity, toggleButtonState } from './validate.js';
 
 const placesElements = document.querySelector('.places__elements');
 const newItemPopup = document.querySelector('.new-item-popup');
@@ -36,14 +38,15 @@ const nameCard = newItemPopup.querySelector('.popup__form-item_input_name');
 const linkCard = newItemPopup.querySelector('.popup__form-item_input_description');
 
 let optionsCard = {
-//    placeElementID: '#place-element', 
-//    itemSelector: '.element-item',
+//    placeElementID: '#place-element',
+//    elementSelector: '.element-item',
 //    imageSelector: '.element__image',
 //    textSelector: '.element__text',
 //    elementSelector: '.element',
 //    likeSelector: '.element__like',
 //    deleteSelector: '.element__delete',
 //    activeLikeClass: 'element__like_active',
+//    buttonSelector: '.popup__form-button-save',
 }
 
 import { openPopup, closePopup } from './modal.js';
@@ -53,26 +56,26 @@ export function enableCard(options) {
 
   initialCards.forEach(function(card) {
     addNewPlace(setPlaceElement(card.name, card.link));
-  });    
+  });
   newItemPopup.addEventListener('submit', handleNewItemFormSubmit);
   infoAddButton.addEventListener('click', setNewItemPopupOpened);
 }
 
 function addNewPlace(newItem) {
   placesElements.prepend(newItem);
-}  
-  
+}
+
 function handleNewItemFormSubmit(evt) {
   evt.preventDefault();
   addNewPlace(setPlaceElement(nameCard.value, linkCard.value));
   closePopup(newItemPopup);
 }
-  
+
 function setPlaceElement(nameItemPlace, linkItemPlace) {
   const placeTemplate = document.querySelector(optionsCard.placeElementID).content;
-  const placeNew = placeTemplate.querySelector(optionsCard.itemSelector).cloneNode(true);
+  const placeNew = placeTemplate.querySelector(optionsCard.elementSelector).cloneNode(true);
   const imageElement = placeNew.querySelector(optionsCard.imageSelector);
-  
+
   placeNew.querySelector(optionsCard.textSelector).textContent = nameItemPlace;
   imageElement.alt = nameItemPlace;
   imageElement.src = linkItemPlace;
@@ -80,22 +83,32 @@ function setPlaceElement(nameItemPlace, linkItemPlace) {
     previewComment.textContent = evt.target.closest(optionsCard.elementSelector).querySelector(optionsCard.textSelector).textContent;
     previewImage.alt = evt.target.alt;
     previewImage.src = evt.target.src;
-  
+
     openPopup(previewPopup);
   });
-  
+
   placeNew.querySelector(optionsCard.likeSelector).addEventListener('click', function(evt) {
     evt.target.classList.toggle(optionsCard.activeLikeClass);
   });
   placeNew.querySelector(optionsCard.deleteSelector).addEventListener('click', function(evt) {
-    evt.target.closest(optionsCard.itemSelector).remove();
+    evt.target.closest(optionsCard.elementSelector).remove();
   });
-  
+
   return placeNew;
 }
-  
+
 function setNewItemPopupOpened() {
   newItemPopupForm.reset();
+
+  const formInput = Array.from(newItemPopupForm.querySelectorAll(optionsCard.itemSelector));
+  const buttonElement = newItemPopupForm.querySelector(optionsCard.buttonSelector);
+
+  formInput.forEach((inputElement) => {
+    checkInputValidity(newItemPopupForm, inputElement);
+  });
+  if (buttonElement) {
+    toggleButtonState(newItemPopupForm, formInput, buttonElement);
+  }
+
   openPopup(newItemPopup);
 }
-          
