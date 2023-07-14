@@ -39,5 +39,6 @@ enableCard(
     activeLikeClass: 'element__like_active',
     itemSelector: '.popup__form-item',
     buttonSelector: '.popup__form-button-save',
+    counterSelector: '.element__like-counter',
    }
 );

@@ -16,6 +16,7 @@ const page = document.querySelector('.page');
 const popups = document.querySelectorAll('.popup')
 
 import { checkInputValidity, toggleButtonState } from "./validate.js";
+import { setUserInfo, setUserAvatar } from "./api.js";
 
 let optionsModal = {
   // itemSelector: '.popup__form-item',
@@ -32,6 +33,7 @@ export function enableModal (options) {
   infoEditButton.addEventListener('click', setPopupOpened);
   editAvatar.addEventListener('click', editAvatarOpened);
   profilePopup.addEventListener('submit', handleFormSubmit);
+  popupAvatar.addEventListener('submit', handleAvatarSubmit);
 
   popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
@@ -89,10 +91,40 @@ function editAvatarOpened() {
   openPopup(popupAvatar);
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  evt.submitter.textContent = 'Сохранить...';
+  setUserAvatar(avatarLink.value)
+    .then(result => {
+      profileAvatar.src = result.avatar;
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      evt.submitter.textContent = 'Сохранить';
+    });
+  closePopup(popupAvatar);
+}
+
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  profileInfoNameText.textContent = nameInput.value;
-  profileInfoDescription.textContent = descriptionInput.value;
+  const userData = {
+    name: nameInput.value,
+    about: descriptionInput.value
+  };
+  evt.submitter.textContent = 'Сохранить...';
+  setUserInfo(userData)
+    .then(result => {
+      profileInfoNameText.textContent = result.name;
+      profileInfoDescription.textContent = result.about;
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      evt.submitter.textContent = 'Сохранить';
+    });
   closePopup(profilePopup);
 }
 

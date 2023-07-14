@@ -4,8 +4,10 @@
   color: #000000;
   line-height: 29px;
   padding: 0;
-  margin: 0 0 0 21px;
+  margin: 25px 0 0 21px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }

@@ -1,6 +1,5 @@
 .element__delete {
   position: absolute;
-  /* z-index: 1; */
   top: 20px;
   right: 20px;
   background-image: url(../../../src/images/trash.svg);
@@ -14,6 +13,7 @@
   cursor: pointer;
   transition: 0.5s;
   transition-property: opacity;
+  visibility: visible;
 }
 
 .element__delete:hover {

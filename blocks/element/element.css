@@ -5,7 +5,6 @@
   width: 282px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 240px 42px;
-  grid-template-rows: 282px 54px;
-  row-gap: 25px;
+  grid-template-columns: 218px 64px;
+  grid-template-rows: 282px 41px 38px;
 }
