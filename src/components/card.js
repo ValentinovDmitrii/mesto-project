@@ -31,24 +31,22 @@ let userId = '';
 
 import { openPopup, closePopup } from './modal.js';
 import { getInitialCards, addCard, getUserInfo, deleteCard, likeCard, unlikeCard } from './api.js';
+import { renderLoading } from './utils.js';
 
 export function enableCard(options) {
   optionsCard = Object.assign({}, options);
 
-  getUserInfo()
-  .then (result => {
-    profileName.textContent = result.name;
-    profileDescription.textContent = result.about;
-    profileAvatar.src = result.avatar;
-    userId = result._id;
-  })
-  .catch(err => {
-    console.log(err);
-  });
+  Promise.all([
+    getUserInfo(),
+    getInitialCards()
+  ])
+    .then(values => {
+      profileName.textContent = values[0].name;
+      profileDescription.textContent = values[0].about;
+      profileAvatar.src = values[0].avatar;
+      userId = values[0]._id;
 
-  getInitialCards()
-    .then(result => {
-      result.forEach(card => {
+      values[1].forEach(card => {
         addNewPlace(setPlaceElement(card.name, card.link, card.likes.length, card.owner._id, card._id));
       });
     })
@@ -70,18 +68,18 @@ function handleNewItemFormSubmit(evt) {
     name: nameCard.value,
     link: linkCard.value
   };
-  evt.submitter.textContent = 'Создать...';
+  renderLoading(evt.submitter, 'Создать', true);
   addCard(card)
     .then(result => {
       addNewPlace(setPlaceElement(result.name, result.link, 0, result.owner._id, result._id));
+      closePopup(newItemPopup);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      evt.submitter.textContent = 'Создать';
-    })
-  closePopup(newItemPopup);
+      renderLoading(evt.submitter, 'Создать', true);
+    });
 }
 
 function setPlaceElement(nameItemPlace, linkItemPlace, countLikes, ownerId, placeId) {

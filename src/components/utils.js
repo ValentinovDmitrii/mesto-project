@@ -9,3 +9,11 @@ export function isValidHttpUrl(string) {
 
   return url.protocol === "http:" || url.protocol === "https:";
 }
+
+export function renderLoading(button, caption, isLoading) {
+  if (isLoading) {
+    button.textContent = caption + '...';
+  } else {
+    button.textContent = caption;
+  }
+}
